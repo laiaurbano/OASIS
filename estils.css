@@ -1,0 +1,561 @@
+/* Reset y estilo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Banner de envío gratis (arriba del menú principal) */
+.shipping-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #4101f6;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 11;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    overflow: hidden;
+}
+.shipping-banner p {
+    margin: 0;
+    position: relative;
+    line-height: 1;
+}
+
+/* Estilos para la imagen animada */
+#marquee-image {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    width: auto;
+    vertical-align: middle;
+    left: 0;
+    object-fit: contain; /* Asegura que la imagen no se distorsione */
+}
+
+/* Banner solo con logo OASIS (debajo del shipping-banner) */
+.logo-banner {
+    position: fixed;
+    top: 33px;
+    width: 100%;
+    background-color: #fff;
+    z-index: 10;
+    padding: 15px 0;
+    border-bottom: 1px solid #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    position: relative;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo-text {
+    font-size: 24px; /* Definido base para responsividad */
+}
+.logo-image {
+    height: 40px;
+    width: auto;
+    margin: 0;
+}
+
+/* Banner de categorías (debajo del logo-banner) */
+.categories-nav {
+    position: fixed;
+    top: 75px;
+    width: 100%;
+    background-color: #fff;
+    z-index: 9;
+    padding: 10px 0; /* Corregido: agregado px */
+    border-bottom: 0px solid #fff;
+}
+.categories-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 20px 0; /* Unificado y corregido padding negativo */
+}
+.sub-nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    justify-content: center;
+    flex: 1;
+    overflow-x: auto;
+}
+.sub-nav-links a {
+    color: #4101f6;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+.sub-nav-links a:hover {
+    color: #cff655;
+}
+
+/* Acciones derechas: idioma + iconos */
+.nav-actions.right {
+    display: flex;
+    list-style: none;
+    gap: 7px;
+    align-items: center;
+    flex: none;
+    justify-content: flex-end;
+}
+.nav-actions.right .lang-toggle {
+    color: #4101f6;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+    transition: color 0.3s;
+    white-space: nowrap;
+    margin-right: 5px;
+}
+.nav-actions.right svg {
+    fill: #4101f6;
+    border: 1px solid #fff;
+    transition: fill 0.3s, border-color 0.3s;
+    width: 20px;
+    height: 20px;
+}
+.sub-nav-links a:hover {
+    color: #cff655;
+}
+
+.nav-actions.right a:hover svg {
+    fill: #cff655; /* Corregido: hover consistente */
+    border-color: #cff655;
+}
+.nav-actions.right .lang-toggle:hover {
+    color: #cff655; /* Corregido: cambio en hover */
+}
+.nav-actions.right .logo-image {
+    height: 20px;
+    width: auto;
+}
+.lang-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    background-color: #4101f6;
+    list-style: none;
+    min-width: 80px;
+    border-radius: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+}
+.nav-actions.right .language:hover .lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.lang-dropdown li {
+    padding: 10px;
+}
+.lang-dropdown a {
+    color: #fff; /* Blanco para fondo púrpura */
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s;
+}
+.lang-dropdown a:hover {
+    color: #cff655;
+}
+
+/* Hamburguesa para móvil (en logo-banner) */
+.hamburger {
+    position: absolute;
+    left: 20px;
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 12;
+}
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #4101f6;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Checkbox hack para menú móvil */
+.menu-toggle {
+    display: none;
+}
+.menu-toggle:checked + .hamburger span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.menu-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle:checked + .hamburger span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Hero section con overlay */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: url('https://via.placeholder.com/1920x1080/FAFAFA/000000?text=Background+Art+Milfshakes');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 125px; /* Ajustado para las barras fijas */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff; /* Corregido: semi-transparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+    color: #fff;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 50px;
+    letter-spacing: 3px; /* Definido base */
+}
+.hero-handle {
+    font-size: 16px; /* Definido base */
+}
+
+/* Estilos para el vinilo grande en hero */
+.hero-vinyl {
+    display: block;
+    width: 80vw; /* Corregido: 80% como en comentario */
+    max-width: 500px;
+    height: auto;
+    margin: -5px auto;
+    animation: spinVinyl 6s linear infinite;
+    filter: drop-shadow(0 10px 20px #cff655);
+}
+
+@keyframes spinVinyl {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Footer estilos (tonos beige) */
+.footer {
+    background-color: #eeeeee; /* Corregido: beige claro */
+    color: #4101f6;
+    padding: 40px 0 20px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 150px;
+}
+
+.footer-column h5 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #4101f6;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: #4101f6;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #000; /* Corregido: negro para contraste */
+}
+
+.newsletter {
+    text-align: left;
+}
+
+.newsletter p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #4101f6;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.newsletter-form input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    font-size: 14px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    font-size: 12px;
+    color: #4101f6;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 8px;
+    margin-top: 2px;
+    appearance: none; /* Para customización completa */
+}
+
+.checkmark {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #4101f6;
+    margin-right: 8px;
+    position: relative;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkmark::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 0;
+    width: 5px;
+    height: 10px;
+    border: solid #4101f6;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.newsletter-form button {
+    background-color: #4101f6;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: flex-start;
+}
+
+.newsletter-form button:hover {
+    background-color: #fff;
+    color: #4101f6;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    color: #4101f6;
+    font-size: 12px;
+}
+
+/* Banner de cookies */
+.cookies-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    color: #4101f6;
+    padding: 15px 20px;
+    font-size: 12px;
+    border-top: 1px solid #ecebeb; /* Corregido: borde visible */
+    z-index: 5;
+    text-align: center;
+}
+
+.cookies-banner a {
+    color: #4101f6;
+    text-decoration: underline;
+    margin: 0 10px;
+}
+
+/* Responsive: Móvil */
+@media (max-width: 768px) {
+    /* Banner de envío en móvil */
+    .shipping-banner {
+        font-size: 11px;
+        padding: 6px 0;
+        line-height: 1.1;
+        overflow: hidden;
+    }
+    #marquee-image {
+        height: 16px;
+    }
+
+    /* Logo-banner en móvil */
+    .logo-banner {
+        top: 25px;
+        padding: 12px 0;
+    }
+    .logo-text {
+        font-size: 20px;
+    }
+    .hamburger {
+        display: flex;
+    }
+
+    /* Categories-nav en móvil */
+    .categories-nav {
+        top: 80px;
+    }
+
+    .sub-nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: #fff; /* Corregido: agregado ; */
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 15px;
+        padding-top: 25px;
+        transition: left 0.3s;
+        z-index: 8;
+        margin: 0;
+        overflow-y: auto;
+    }
+    .menu-toggle:checked ~ .categories-nav .sub-nav-links {
+        left: 0;
+    }
+    .menu-toggle:checked ~ .categories-nav .sub-nav-links a {
+        color: #fff;
+    }
+
+    /* Acciones derechas en móvil */
+    .nav-actions.right {
+        gap: 3px;
+    }
+    .nav-actions.right .lang-toggle {
+        font-size: 11px;
+        margin-right: 3px;
+    }
+    .nav-actions.right svg {
+        width: 18px;
+        height: 18px;
+        fill: #4101f6;
+    }
+    .nav-actions.right .logo-image {
+        height: 18px;
+        width: auto;
+    }
+    .lang-dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background-color: transparent;
+        box-shadow: none;
+        right: auto;
+        top: auto;
+    }
+    .lang-dropdown li {
+        padding: 0;
+    }
+    .lang-dropdown a {
+        color: #4101f6;
+    }
+
+    .hero-title {
+        font-size: 40px;
+        letter-spacing: 2px;
+    }
+    .hero-handle {
+        font-size: 14px;
+    }
+    .hero {
+        margin-top: 113px;
+    }
+
+    /* Footer responsive */
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-column {
+        min-width: auto;
+    }
+    .newsletter {
+        text-align: center;
+    }
+    .newsletter-form button {
+        align-self: center;
+    }
+
+    .cookies-banner {
+        font-size: 11px;
+        padding: 10px 15px;
+    }
+    .cookies-banner a {
+        margin: 0 5px;
+    }
+}
+
+/* Accent para elementos */
+.accent-red {
+    color: #4101f6;
+}

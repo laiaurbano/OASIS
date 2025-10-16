@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OASIS - Tienda de Ropa</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="estils.css" rel="stylesheet">
+</head>
+<body>
+    <!--Banner inicial amb animació JS-->
+    <div class="shipping-banner">
+        <p><img id="marquee-image" src="Logos/Ofertas black friday soon.png" alt="Banner d'ofertes black friday"></p>
+    </div>
+    <!-- Banner amb el logo d'OASIS (creem un contenidor per al logo central i el menu hamburguesa)--> 
+    <div class="logo-banner">
+        <div class="logo-container">
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <div class="logo">
+                <img src="Logos/OASIS.png" alt="OASIS" class="logo-image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner de categories del menú -->
+    <nav class="categories-nav">
+        <div class="categories-container">
+            <ul class="sub-nav-links">
+                <li><a href="#VINILS">VINILS</a></li>
+                <li><a href="#ARTISTES">ARTISTES</a></li>
+                <li><a href="#GÈNERES">GÈNERES</a></li>
+                <li><a href="#DISCS">DISCS</a></li>
+                <li><a href="#OFERTES">OFERTES</a></li>
+                <li><a href="#REVENTA">REVENTA</a></li>
+            </ul>
+            <!-- Accions de la dreta (idioma, compte, busqueda, carret) -->
+            <ul class="nav-actions right">
+                <li class="language">
+                    <a href="#" title="Idioma" class="lang-toggle">ESPAÑOL ▼</a>
+                    <ul class="lang-dropdown">
+                        <li><a href="#" onclick="changeLang('es')">ES</a></li>
+                        <li><a href="#" onclick="changeLang('en')">EN</a></li>
+                        <li><a href="#" onclick="changeLang('ca')">CA</a></li>
+                    </ul>
+                </li>
+                <li class="usuari">
+                    <a href="#compte" title="Perfil" class="icon-link usuario-icon"></a>
+                    <img src="Fotos/Cuenta.png" alt="OASIS" class="logo-image">
+                </li>
+                <li class="búsqueda">
+                    <a href="#búsqueda" title="Buscar" class="icon-link busqueda-icon"></a>
+                    <img src="Fotos/Lupa.png" alt="OASIS" class="logo-image">
+                </li>
+                <li class="carret">
+                    <a href="#carret" title="Carret" class="icon-link carret-icon"></a>
+                    <img src="Fotos/Carrito compra.png" alt="OASIS" class="logo-image">
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<!-- Secció hero amb un vinil giratori -->
+<section class="hero">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <!-- Vinil -->
+            <img src="Logos/Oasis vinilo pagina principal .png" alt="Vinil giratori" class="hero-vinyl">
+        </div>
+    </div>
+</section>
+
+    <!-- Footer basado en la foto -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Columna 1: Brand -->
+            <div class="footer-column">
+                <h5>Brand</h5>
+                <ul>
+                    <li><a href="#botigues">BOTIGUES</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 2: Boring Stuff -->
+            <div class="footer-column">
+                <h5>Boring Stuff</h5>
+                <ul>
+                    <li><a href="#privacitat">Política de Privacitat</a></li>
+                    <li><a href="#termes i condicions">Termes i Condicions</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Support -->
+            <div class="footer-column">
+                <h5>Support</h5>
+                <ul>
+                    <li><a href="#devolucions">Devolucions</a></li>
+                    <li><a href="#seguimient">Seguimient de la comanda</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contacte">Contacte</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 4: Country & Language -->
+            <div class="footer-column">
+                <h5>Country & Language</h5>
+                <ul>
+                    <li><a href="#es">ES | EUR | Español</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 5: Join the Movement (formulario) -->
+            <div class="footer-column newsletter">
+                <h5>Join the Movement</h5>
+                <p>Sign up to our email list and get exclusive content</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Correu electrónico" required>
+                    <label class="checkbox-label">
+                        <input type="checkbox" required>
+                        <span class="checkmark"></span>
+                        Accepto rebre contingut d'OASIS via e-mail i he llegit i acceptat la Politica de Privacitat.
+                    </label>
+                    <button type="submit">ACCEDER</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; M***SHAKES</p>
+        </div>
+    </footer>
+
+    <!-- Banner de cookies (opcional, al final) -->
+    <div class="cookies-banner">
+        <p>Utilitzem cookies pròpias i de tercers per analitzar l'ús del lloc web i millorar l'experiència de navegació. <a href="#config">Configurar</a> | <a href="#denegar">Denegar</a> | <a href="#acceptar">Acceptar</a></p>
+    </div>
+
+    <!-- Nou: Enllaç a l'arxiu JavaScript per l'animació -->
+    <script src="Animacions javascript.js"></script>
+    <script>
+        // Función básica para cambiar idioma
+        function changeLang(lang) {
+            document.querySelector('.lang-toggle').textContent = lang.toUpperCase() + ' ▼';
+            console.log('Idioma cambiado a:', lang);
+        }
+    </script>
+</body>
+</html>
